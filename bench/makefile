@@ -8,13 +8,15 @@ all: bench
 bench: bench.c
 	$(CC) $(FILES) $(CFLAGS) ../sse/blake2b.c -o blake2b
 	$(CC) $(FILES) $(CFLAGS) ../sse/blake2s.c -o blake2s
+	$(CC) $(FILES) $(CFLAGS) md4.c -o md4  -lcrypto -lz
 	$(CC) $(FILES) $(CFLAGS) md5.c -o md5  -lcrypto -lz
 
 plot: bench
 	./blake2b > blake2b.data
 	./blake2s > blake2s.data
+	./md4 > md4.data
 	./md5 > md5.data
 	gnuplot do.gplot
 
 clean:
-	rm -f blake2b blake2s md5 plotcycles.pdf blake2b.data blake2s.data md5.data
+	rm -f blake2b blake2s md4 md5 plotcycles.pdf blake2b.data blake2s.data md4.data md5.data

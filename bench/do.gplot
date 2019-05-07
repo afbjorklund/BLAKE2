@@ -13,6 +13,7 @@ set output "plotcycles.pdf"
 
 plot    "blake2b.data" using 1:2 with lines title "BLAKE2b"
 replot  "blake2s.data" using 1:2 with lines title "BLAKE2s"
+replot  "md4.data" using 1:2 with lines title "MD4"
 replot  "md5.data" using 1:2 with lines title "MD5"
 
 set output "plotcycles.pdf"
